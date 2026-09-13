@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+            
+            
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            min-height: 100vh;
+            background-image:url(nasa-Q1p7bh3SHj8-unsplash.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color:white;
+        }
+        .navbar{
+            height:4.5rem;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            width:100%;
+            background-color:black;
+            position:fixed;
+            z-index: 9999;
+        }
+        .icuun{
+            text-decoration: double ;
+            font-size: 2rem;
+            margin-left: 10px;;
+        }
+        .navcontent{
+            width:20%;
+            display:flex;
+            justify-content:space-between;
+            align-items: center;
+            font-size: 1.6rem;
+            
+            
+        }
+        .navcontent div:hover{
+            color:aqua;
+        }
+        .login{
+            height:55vh;
+            width:37vw;
+            transform:translate(-50%,-50%);
+            position:absolute;
+            top:50%;
+            left:50%;
+            border:2px solid rgba(244, 244, 244,0.5);
+            border-radius: 10px;
+            align-content: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .login h2{
+            font-size: 3.5rem;
+            text-align: center;
+            
+        }
+        .extra{
+            font-size: 1.5rem;
+            text-align: center;
+            margin:1.0rem 0 1.5rem 0rem;
+            
+        }
+        a{
+            transition:font-size 0.1s ease-in-out;
+            text-decoration: none;
+            color:aqua;
+        
+        }
+        
+        .input-field{
+            
+            margin:1.0rem;
+        
+            height:2.5rem;
+            width:60%;
+            
+            padding:5px;
+
+        }
+        .write{
+            text-align: center;
+        }
+        .submit{
+            
+            text-align: center;
+        }
+        button{
+            margin-top: 10px;;
+            width:60%;
+            padding:8px;
+            border:0px solid white;
+            border-radius:15px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            background-color: bisque;
+
+        }
+        button:hover{
+            background-color: rgba(255, 228, 196, 0.767);
+        }
+        .write{
+            position:relative;
+            
+        }
+        .icon{
+            position:absolute;
+            right:20%;
+            top:50%;
+            transform: translate(-50%,-50%);
+            cursor:pointer;
+            font-size: 14px;;
+        }
+        .tooltip{
+            position:absolute;
+            right:-5em;
+            top:-137%;
+            width:max-content;
+            background: #333;
+            padding:1px 5px;
+            border-radius:15px;
+            font-size: 15px;
+            color:aliceblue;
+            visibility:hidden;
+            transition:0.3;
+        }
+        .icon:hover .tooltip{
+            visibility:visible;
+            
+            
+        }
+
+        a:hover{
+            color:rgb(240, 210, 12);
+            font-size: 1.7rem;
+        }
+        .input-field::placeholder{
+            color:rgb(236, 236, 236);
+            transition:font-size 0.1s ease-in-out;
+        }
+        .input-field:hover::placeholder{
+            font-size: 16px;
+        }
+        input{
+            background: transparent;
+            border:none;
+            border-bottom:2px solid white;
+        }
+        input:focus{
+            outline:none;
+            border-bottom:3px solid white;
+        }
+
+        
+    </style>
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="icuun">Code Verse</div>
+        <div class="navcontent">
+            <div class="childnav">Home</div>
+            <div class="childnav">Courses</div>
+            <div class="childnav">About</div>
+        </div>
+        <div class="notification"></div>
+    </div>
+
+    <div class="login">
+        <h2>Welcome Back</h2>
+        <p class="extra">Login to continue</p>
+        <form action="/submit">
+            <div class="write">
+                <input class="input-field" type="text" name="email id" placeholder="Email" required>
+            </div>
+            <div class="write">
+                <input class="input-field" type="password" name="Password"placeholder="Password" required>
+                <span class="icon">! <span class="tooltip">Password should be 8-20 characters long</span></span>
+                
+                
+            </div>
+            <div class="submit">
+                <button type="submit">Login</button>
+            </div>
+
+            <div class="extra">
+                <a href="#">Forgot Password?</a>
+            </div>
+            <div class="extra">
+                Dont have an account?<a href="#">Sign up</a>
+
+            </div>
+            
+        </form>
+    </div>
+    
+</body>
+</html>
