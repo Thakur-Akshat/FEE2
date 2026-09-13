@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cricket game</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bat-Ball-stump Game</h1>
+    <button onclick="
+    let randomNo=Math.random()*3;
+    let computerChoice;
+    //Making computer choice
+
+    if(randomNo>0 && randomNo<1)     computerChoice='Bat';
+    else if(randomNo>=1&&randomNo<2) computerChoice='Ball';
+    else computerChoice='Stump';
+    //Finding out the result
+
+    let resultMsg;
+    if(computerChoice==='Ball')     resultMsg='User has won';
+    else if(computerChoice==='Bat') resultMsg='Its a tie';
+    else resultMsg='Computer Won';
+    //Announcing the result
+
+    alert(`You have chosen bat. Computer choice is ${computerChoice} 
+    and ${resultMsg}`);"
+    class="bat">Bat</button>
+
+
+    <button class="ball" onclick="
+    randomNo=Math.random()*3;
+    //computerChoice;
+    if(randomNo>0 && randomNo<1){
+        computerChoice='Bat';
+    }
+    else if(randomNo>=1&&randomNo<2) {computerChoice='Ball';}
+    else{
+        computerChoice='Stump';
+        //console.log('Computer choice is Stump');
+    }
+
+    if(computerChoice==='Ball') resultMsg='Its a draw';
+    else if(computerChoice==='Bat') resultMsg='Computer has won';
+    else resultMsg='User has won';
+
+    alert(`You have chosen Ball. Computer choice is ${computerChoice} and ${resultMsg}`);
+    ">Ball</button>
+
+
+
+    <button class="stump" onclick="
+    randomNo=Math.random()*3;
+    //computerChoice;
+    if(randomNo>0 && randomNo<1)     computerChoice='Bat';
+    else if(randomNo>=1&&randomNo<2) computerChoice='Ball';
+    else  computerChoice='Stump';
+    
+    //Finding winner
+    if(computerChoice==='Ball') resultMsg='Computer has won';
+    else if(computerChoice==='Bat') resultMsg='User has won';
+    else resultMsg='Its a draw';
+
+    alert(`You have chosen Stump. Computer choice is ${computerChoice} and ${resultMsg}`);
+    ">Stump</button>
+    
+</body>
+</html>

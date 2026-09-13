@@ -1,0 +1,145 @@
+<!-- Reset button dabane ki baad wali problem ko ab solve krenge inside showresult function -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cricket game</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bat-Ball-stump Game</h1>
+
+    <button onclick="
+    //Making computer choice
+    let computerChoice= genCompChoice();
+    //Finding out the result
+    let resultMsg=getResult('Bat',computerChoice);
+
+    //Announcing the result
+    showResult('Bat',computerChoice,resultMsg);  
+    ">Bat</button>
+
+
+    <button class="ball" onclick="
+    //computerChoice;
+    computerChoice=genCompChoice(); 
+    //Finding out result
+    resultMsg=getResult('Ball',computerChoice);
+
+    //REsult announcement
+    showResult('Ball',computerChoice,resultMsg)
+    ">Ball</button>
+
+
+    <button class="stump" onclick="
+    //computerChoice;
+    computerChoice= genCompChoice();
+    //Finding winner
+    resultMsg=getResult('Stump',computerChoice);
+    //Result announcement
+    showResult('Stump',computerChoice,resultMsg);
+    ">Stump</button>
+
+    <button class="reset" onclick="localStorage.clear();
+    resetScore();"   
+    >Reset</button>
+    <!-- NOt passing any value in the resetScore function call will automatically give it undefined -->
+
+    <h3 id="user-move"></h3>
+    <h3 id="computer-move"></h3>
+    <h3 id="result"></h3>
+    <h3 id="score"></h3>
+
+    <script>
+
+        let scoredata=localStorage.getItem('Score');  //i need this at the time of reload only when the whole code runs from begining
+        let score;
+        resetScore(scoredata);
+        
+        
+        function resetScore(scoredata){
+            if(scoredata!=undefined){
+                score= JSON.parse(scoredata); 
+            }
+            else{
+                score={
+                win:0,
+                lost:0,
+                tie:0, 
+                }
+            }
+            score.displayScore= function(){         
+                    return `Won:${score.win}, Lost:${score.lost}, Tie:${score.tie}`;
+                }
+
+            // Reset krne ke baad storage mei toh reset ho rha hai pr vo change webpage mei visible nhi ho rha tha toh
+            // ek baar aur showresult() call kr liya taki vo update ho jaye
+            showResult();
+        }
+        
+        
+        function genCompChoice(){ 
+            let randomNo=Math.random()*3;
+            if(randomNo>0 && randomNo<1)     return 'Bat';
+            else if(randomNo>=1&&randomNo<2) return 'Ball';
+            else return 'Stump';
+        }
+        function getResult(userMove,computerMove){
+            if(userMove==computerMove){
+                score.tie++;
+                return 'Its a tie';
+            } 
+
+            else if(computerMove==='Bat') {
+                if(userMove==='Ball'){
+                    score.lost++;
+                    return 'Computer has won';
+                } 
+                else{
+                    score.win++;
+                    return 'User has won'; 
+                }  
+            }
+            else if(computerMove==='Ball'){
+                if(userMove==='Bat') {
+                    score.win++;
+                    return 'User has won';
+                }
+                else {
+                    score.lost++;
+                    return 'Computer has won';
+                }
+
+            }
+            else if(computerMove==='Stump'){
+                if(userMove==='Ball'){
+                    score.win++;
+                    return 'User has won';
+                } 
+                else{
+                    score.lost++;
+                    return 'Computer has won';
+                } 
+            }
+        }
+
+        function showResult(userMove,computerMove,resultMsg){
+            //ab yha hm apna score local storage mei store krenge
+            localStorage.setItem('Score',JSON.stringify(score));
+            //bs ternary operator use kiya hai jyada kuch nhi
+            //jb reset button dabega aur showresult function call hoga toh vo bina arguments ke call hoga
+            //toh in sb paramenters ki value undefined hogi bs ussi chiz ko pakadna hai hmne
+            document.querySelector('#user-move').innerText= userMove!== undefined ?`You have Chosen ${userMove}` : " ";
+            document.querySelector('#computer-move').innerText=computerMove!== undefined ?`Computer has Chosen ${computerMove}` : " ";
+            document.querySelector('#result').innerText=resultMsg!==undefined ? resultMsg  : " ";
+            document.querySelector('#score').innerText=`Score : ${score.displayScore()}`;
+        }
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cricket game</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bat-Ball-stump Game</h1>
+    <button onclick="
+    let randomNo=Math.random()*3;
+    if(randomNo>0 && randomNo<1){
+        alert('You chose bat computer chose ball You won');
+    }
+    else if(randomNo>=1&&randomNo<2){
+        alert('You chose bat computer chose stumps You Lost');
+    }
+    else{
+        alert('Its a draw you both chose bat');
+    }
+    
+    
+    
+    " class="bat">Bat</button>
+    <button class="ball">Ball</button>
+    <button class="stump">Stump</button>
+    
+</body>
+</html>
