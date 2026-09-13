@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="greetings"></h2>
+
+    <h4 class="frequency"></h4>
+    <button onclick="
+    let c=clicked();
+    colourChange(c);
+    ">Click me</button>
+
+
+
+
+    <script>
+
+        
+
+    function doGreeting(personName='Dear'){
+
+        let myDate=new Date();
+        let hour=myDate.getHours();
+        let heading=document.querySelector('.greetings');
+        if(hour>=4&&hour<12){
+            heading.innerHTML=`Good morning ${personName}`;
+        }
+        else if(hour>=12&&hour<16){
+            heading.innerHTML=`Good Afternoon ${personName}`;
+        }
+        else if(hour>=16&&hour<20){
+            heading.innerHTML=`Good Evening ${personName}`;
+
+        }
+        else{
+            heading.innerHTML=`Good Night ${personName}`;
+        }
+    }
+        // ********************** main() ***************************
+        doGreeting("Akshat");
+
+        let obj1={};
+        let storedData=localStorage.getItem('clicks');
+        obj1=JSON.parse(storedData) || {      
+                NoOfclicks:0
+            };
+        document.querySelector('.frequency').innerText=obj1.NoOfclicks;
+        colourChange(obj1.NoOfclicks);
+
+        // ************************************************************************
+        
+        function clicked(){
+            obj1.NoOfclicks++;
+            localStorage.setItem('clicks',JSON.stringify(obj1));
+            document.querySelector('.frequency').innerText=obj1.NoOfclicks;
+            return obj1.NoOfclicks;
+        }
+
+        function colourChange(c){
+            if(c%2===0){
+                document.querySelector('button').style.backgroundColor="green";
+            }
+            else{
+                document.querySelector('button').style.backgroundColor="yellow";
+
+            }
+
+        }
+    </script>
+</body>
+</html>
