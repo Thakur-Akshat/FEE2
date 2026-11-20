@@ -1,0 +1,38 @@
+fee
+---------------------------------------------
+---------------------------------------------------------------------------------------
+JavaScript (JS)
+React
+Components
+Props
+State
+onClick / Event Handling
+Forms
+onSubmit
+Validation
+Router
+Multi-page Applications
+Nested Routes
+Global State
+Redux
+Zustand
+Map
+Filter
+Functions
+UI
+UX
+CSS
+Buttons
+Links
+ 
+-----------------------------------------------------------------------------------------
+
+**js-**JavaScript is the foundation of React and is essential for building dynamic web applications. used more handling user interactions, fetch data from APIs,  making our websites more responsive and interactive.
+
+react- because it uses components so building webpages becomes convenient . State changes are  also very well handeled by react. It makes code of big applications very easy to understand amd maintain.
+
+Components-these  are important because they let us build a web application using reusable UI pieces. Instead of writing the same code multiple times, we can create a component once and use it wherever needed.
+
+**props-**because props helps us to pass data from parent component to child component. It makes components more reusable and flexible as same component can be used with different data.
+
+state-because state allows us to store and manage dynamic data inside a component. Whenever the state changes, React automatically updates the UI, making the application more interactive
